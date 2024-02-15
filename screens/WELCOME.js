@@ -1,48 +1,67 @@
 import * as React from "react";
 import { Image } from "expo-image";
 import { StyleSheet, View, Text, Pressable } from "react-native";
-import { StackNavigationProp } from "@react-navigation/stack";
-import { useNavigation, ParamListBase } from "@react-navigation/native";
-import { FontSize, Color, FontFamily, Border } from "../GlobalStyles";
+import { useNavigation } from "@react-navigation/native";
+import { FontFamily, FontSize, Color, Border } from "../GlobalStyles";
 
-const SIKERCSIPOGASKILEPES = () => {
-  const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
+const WELCOME = () => {
+  const navigation = useNavigation();
 
   return (
-    <View style={styles.sikercsipogaskilepes}>
+    <View style={styles.welcome}>
       <Image
         style={styles.image1Icon}
         contentFit="cover"
         source={require("../assets/image-11.png")}
       />
-      <View style={styles.sikercsipogaskilepesChild} />
+      <View style={styles.welcomeChild} />
       <Image
-        style={styles.sikercsipogaskilepesItem}
+        style={styles.welcomeItem}
         contentFit="cover"
         source={require("../assets/frame-12.png")}
       />
-      <Text style={[styles.jPihenstLszl, styles.jPihenstLszlTypo]}>
-        Jó pihenést, László!
+      <Text style={[styles.dvzllekLszl, styles.dvzllekLszlTypo]}>
+        Üdvözöllek, László!
       </Text>
-      <Text style={[styles.sikeresKilps, styles.jPihenstLszlTypo]}>
-        Sikeres kilépés!
+      <Text style={[styles.sikeresBejelentkezs, styles.dvzllekLszlTypo]}>
+        Sikeres bejelentkezés!
       </Text>
       <Pressable
-        style={styles.btn1}
+        style={[styles.btn1, styles.btnLayout]}
         onPress={() => navigation.navigate("MAINPAGEloggedout")}
       >
-        <Text style={styles.tovbb}>Tovább</Text>
+        <Text style={[styles.tovbb, styles.tovbbTypo]}>Tovább</Text>
+      </Pressable>
+      <Pressable
+        style={[styles.btn2, styles.btnLayout]}
+        onPress={() => navigation.navigate("STANDBY")}
+      >
+        <Text style={[styles.kilps, styles.tovbbTypo]}>Kilépés</Text>
       </Pressable>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  jPihenstLszlTypo: {
+  dvzllekLszlTypo: {
     width: 370,
-    fontSize: FontSize.size_13xl,
     textAlign: "center",
+    fontFamily: FontFamily.cambayRegular,
+    fontSize: FontSize.size_13xl,
     color: Color.colorWhite,
+    left: "50%",
+    position: "absolute",
+  },
+  btnLayout: {
+    height: 67,
+    width: 369,
+    borderRadius: Border.br_221xl,
+    left: 31,
+    position: "absolute",
+  },
+  tovbbTypo: {
+    fontSize: FontSize.size_lg,
+    textAlign: "center",
     fontFamily: FontFamily.cambayRegular,
     left: "50%",
     position: "absolute",
@@ -55,7 +74,7 @@ const styles = StyleSheet.create({
     opacity: 0,
     position: "absolute",
   },
-  sikercsipogaskilepesChild: {
+  welcomeChild: {
     marginLeft: -484,
     top: -19,
     borderRadius: Border.br_171xl,
@@ -65,7 +84,7 @@ const styles = StyleSheet.create({
     left: "50%",
     position: "absolute",
   },
-  sikercsipogaskilepesItem: {
+  welcomeItem: {
     top: 47,
     left: 121,
     width: 187,
@@ -73,36 +92,36 @@ const styles = StyleSheet.create({
     position: "absolute",
     overflow: "hidden",
   },
-  jPihenstLszl: {
+  dvzllekLszl: {
     marginLeft: -185,
     top: 502,
   },
-  sikeresKilps: {
+  sikeresBejelentkezs: {
     marginLeft: -184,
     top: 256,
   },
   tovbb: {
     marginLeft: -29.5,
     top: 19,
-    fontSize: FontSize.size_lg,
-    textAlign: "center",
     color: Color.colorWhite,
-    fontFamily: FontFamily.cambayRegular,
-    left: "50%",
-    position: "absolute",
+    fontSize: FontSize.size_lg,
   },
   btn1: {
-    top: 818,
-    left: 31,
-    borderRadius: Border.br_221xl,
+    top: 736,
     borderStyle: "solid",
     borderColor: Color.colorWhite,
     borderWidth: 1,
-    width: 369,
-    height: 67,
-    position: "absolute",
   },
-  sikercsipogaskilepes: {
+  kilps: {
+    marginLeft: -28.5,
+    top: 21,
+    color: Color.colorTomato_100,
+  },
+  btn2: {
+    top: 821,
+    backgroundColor: Color.colorCrimson,
+  },
+  welcome: {
     borderRadius: Border.br_31xl,
     backgroundColor: Color.colorGray_100,
     flex: 1,
@@ -112,4 +131,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SIKERCSIPOGASKILEPES;
+export default WELCOME;

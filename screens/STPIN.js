@@ -1,15 +1,14 @@
 import * as React from "react";
 import { StyleSheet, View, Text, Pressable } from "react-native";
 import { Image } from "expo-image";
-import { StackNavigationProp } from "@react-navigation/stack";
-import { useNavigation, ParamListBase } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
 import { FontSize, Color, FontFamily, Border } from "../GlobalStyles";
 
-const RDPIN = () => {
-  const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
+const STPIN = () => {
+  const navigation = useNavigation();
 
   return (
-    <View style={styles.rdPin}>
+    <View style={styles.stPin}>
       <View style={styles.rectangleParent}>
         <View style={styles.frameChild} />
         <View style={styles.frameItem} />
@@ -25,16 +24,11 @@ const RDPIN = () => {
         />
         <Text style={styles.hzzABejelentkezshez}>Húzz a bejelentkezéshez</Text>
       </View>
-      <View style={styles.rdPinChild} />
+      <View style={styles.stPinChild} />
       <Text style={styles.pin}>PIN:</Text>
-      <Text style={styles.text}>123</Text>
+      <Text style={styles.text}>1</Text>
       <Text style={[styles.text1, styles.textTypo3]}>1</Text>
-      <Pressable
-        style={[styles.pressable, styles.text3Position]}
-        onPress={() => navigation.navigate("SLIDETOCONFIRM")}
-      >
-        <Text style={styles.textTypo3}>4</Text>
-      </Pressable>
+      <Text style={[styles.text2, styles.textTypo3]}>4</Text>
       <Text style={[styles.text3, styles.textTypo3]}>7</Text>
       <Text style={[styles.text4, styles.textTypo2]}>8</Text>
       <Text style={[styles.text5, styles.textTypo2]}>0</Text>
@@ -42,7 +36,12 @@ const RDPIN = () => {
       <Text style={[styles.text7, styles.textTypo1]}>9</Text>
       <Text style={[styles.text8, styles.textTypo2]}>5</Text>
       <Text style={[styles.text9, styles.textTypo1]}>6</Text>
-      <Text style={[styles.text10, styles.textTypo]}>2</Text>
+      <Pressable
+        style={styles.pressable}
+        onPress={() => navigation.navigate("NDPIN")}
+      >
+        <Text style={[styles.text10, styles.textTypo]}>2</Text>
+      </Pressable>
       <Text style={[styles.text11, styles.text11Position]}>3</Text>
       <Pressable
         style={[styles.image1, styles.text11Position]}
@@ -69,12 +68,10 @@ const styles = StyleSheet.create({
     height: 49,
     width: 26,
     textAlign: "center",
+    left: 83,
     fontSize: FontSize.size_17xl,
     color: Color.colorWhite,
     fontFamily: FontFamily.capriolaRegular,
-  },
-  text3Position: {
-    left: 83,
     position: "absolute",
   },
   textTypo2: {
@@ -99,7 +96,6 @@ const styles = StyleSheet.create({
   },
   textTypo: {
     height: 45,
-    top: 356,
     textAlign: "center",
     fontSize: FontSize.size_17xl,
     color: Color.colorWhite,
@@ -164,7 +160,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     overflow: "hidden",
   },
-  rdPinChild: {
+  stPinChild: {
     top: 53,
     left: 24,
     width: 371,
@@ -196,17 +192,12 @@ const styles = StyleSheet.create({
   },
   text1: {
     top: 356,
-    height: 49,
-    left: 83,
-    position: "absolute",
   },
-  pressable: {
+  text2: {
     top: 452,
   },
   text3: {
     top: 548,
-    left: 83,
-    position: "absolute",
   },
   text4: {
     top: 548,
@@ -235,18 +226,21 @@ const styles = StyleSheet.create({
     top: 452,
   },
   text10: {
-    left: 194,
     width: 42,
     height: 45,
+  },
+  pressable: {
+    left: 194,
+    top: 356,
     position: "absolute",
   },
   text11: {
     height: 45,
-    top: 356,
     textAlign: "center",
     fontSize: FontSize.size_17xl,
     color: Color.colorWhite,
     fontFamily: FontFamily.capriolaRegular,
+    top: 356,
   },
   icon: {
     height: "100%",
@@ -256,7 +250,7 @@ const styles = StyleSheet.create({
     top: 655,
     height: 37,
   },
-  rdPin: {
+  stPin: {
     borderRadius: Border.br_31xl,
     flex: 1,
     height: 932,
@@ -266,4 +260,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default RDPIN;
+export default STPIN;

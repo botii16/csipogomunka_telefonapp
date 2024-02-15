@@ -1,57 +1,65 @@
 import * as React from "react";
 import { Image } from "expo-image";
-import { StyleSheet, View, Text, Pressable } from "react-native";
-import { StackNavigationProp } from "@react-navigation/stack";
-import { useNavigation, ParamListBase } from "@react-navigation/native";
+import { StyleSheet, View, Pressable, Text } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 import { Color, Border, FontSize, FontFamily } from "../GlobalStyles";
 
-const SZABADSAGlogin = () => {
-  const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
+const MAINPAGEloggedout = () => {
+  const navigation = useNavigation();
 
   return (
-    <View style={styles.szabadsaglogin}>
+    <View style={styles.mainpageloggedout}>
       <Image
         style={styles.image1Icon}
         contentFit="cover"
         source={require("../assets/image-11.png")}
       />
-      <View
-        style={[styles.szabadsagloginChild, styles.szabadsagloginPosition]}
+      <View style={styles.mainpageloggedoutChild} />
+      <Pressable
+        style={[styles.mainpageloggedoutItem, styles.mainpageloggedoutLayout]}
+        onPress={() => navigation.navigate("BECSIPOGASlogout")}
       />
-      <View
-        style={[styles.szabadsagloginItem, styles.szabadsagloginPosition]}
+      <Pressable
+        style={[styles.mainpageloggedoutInner, styles.mainpageloggedoutLayout]}
+        onPress={() => navigation.navigate("STATICSLOGOUT")}
       />
-      <View
-        style={[styles.szabadsagloginInner, styles.rectangleViewPosition]}
+      <Pressable
+        style={[styles.rectanglePressable, styles.mainpageloggedoutLayout]}
+        onPress={() => navigation.navigate("SZABADSAGlogout")}
       />
-      <View style={[styles.rectangleView, styles.rectangleViewPosition]} />
-      <View style={styles.szabadsagloginChild1} />
+      <View style={[styles.frameView, styles.viewPosition]} />
+      <View style={[styles.rectangleView, styles.viewPosition]} />
+      <View style={styles.mainpageloggedoutChild1} />
       <Text style={[styles.dvzllekLszl, styles.szabadsgTypo]}>
         Üdvözöllek, László!
       </Text>
+      <Text style={[styles.becsippants, styles.szabadsgTypo]}>
+        Becsippantás
+      </Text>
+      <Text style={[styles.statisztikim, styles.szabadsgTypo]}>
+        Statisztikáim
+      </Text>
       <Text style={[styles.szabadsg, styles.szabadsgTypo]}>Szabadság</Text>
-      <Text
-        style={[styles.munkaKzbenNem, styles.szabadsgTypo]}
-      >{`Munka közben nem tudsz
-szabadságot kérni!`}</Text>
       <Pressable
         style={styles.btn2}
-        onPress={() => navigation.navigate("MAINPAGEloggedin")}
+        onPress={() => navigation.navigate("STANDBY")}
       >
-        <Text style={styles.vissza}>Vissza</Text>
+        <Text style={styles.kilps}>Kilépés</Text>
       </Pressable>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  szabadsagloginPosition: {
+  mainpageloggedoutLayout: {
+    height: 180,
+    width: 640,
     backgroundColor: Color.colorGray_200,
     borderRadius: Border.br_171xl,
     left: "50%",
     position: "absolute",
   },
-  rectangleViewPosition: {
+  viewPosition: {
     top: 47,
     position: "absolute",
   },
@@ -72,19 +80,30 @@ const styles = StyleSheet.create({
     opacity: 0,
     position: "absolute",
   },
-  szabadsagloginChild: {
-    marginLeft: -484,
+  mainpageloggedoutChild: {
     top: -19,
     width: 969,
     height: 969,
+    backgroundColor: Color.colorGray_200,
+    borderRadius: Border.br_171xl,
+    left: "50%",
+    marginLeft: -484,
+    position: "absolute",
   },
-  szabadsagloginItem: {
-    marginLeft: -355,
+  mainpageloggedoutItem: {
     top: 141,
-    width: 531,
-    height: 613,
+    marginLeft: -484,
+    width: 640,
   },
-  szabadsagloginInner: {
+  mainpageloggedoutInner: {
+    marginLeft: -504,
+    top: 353,
+  },
+  rectanglePressable: {
+    marginLeft: -554,
+    top: 565,
+  },
+  frameView: {
     left: 121,
     width: 187,
     height: 187,
@@ -100,10 +119,10 @@ const styles = StyleSheet.create({
     top: 47,
     left: "50%",
   },
-  szabadsagloginChild1: {
+  mainpageloggedoutChild1: {
     marginLeft: 136,
     borderRadius: Border.br_211xl,
-    backgroundColor: Color.colorMediumseagreen,
+    backgroundColor: Color.colorTomato_200,
     width: 40,
     height: 40,
     top: 57,
@@ -112,18 +131,26 @@ const styles = StyleSheet.create({
   },
   dvzllekLszl: {
     marginLeft: -234,
+    color: Color.colorWhite,
+    fontSize: FontSize.size_13xl,
     top: 57,
   },
-  szabadsg: {
+  becsippants: {
     marginLeft: -215,
     top: 208,
   },
-  munkaKzbenNem: {
-    marginLeft: -210,
-    top: 413,
+  statisztikim: {
+    top: 420,
+    marginLeft: -234,
+    color: Color.colorWhite,
+    fontSize: FontSize.size_13xl,
   },
-  vissza: {
-    marginLeft: -25.5,
+  szabadsg: {
+    marginLeft: -260,
+    top: 632,
+  },
+  kilps: {
+    marginLeft: -28.5,
     top: 21,
     fontSize: FontSize.size_lg,
     color: Color.colorTomato_100,
@@ -141,7 +168,7 @@ const styles = StyleSheet.create({
     height: 67,
     position: "absolute",
   },
-  szabadsaglogin: {
+  mainpageloggedout: {
     borderRadius: Border.br_31xl,
     backgroundColor: Color.colorGray_100,
     flex: 1,
@@ -151,4 +178,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default SZABADSAGlogin;
+export default MAINPAGEloggedout;

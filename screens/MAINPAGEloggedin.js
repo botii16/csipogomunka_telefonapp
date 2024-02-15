@@ -1,49 +1,46 @@
 import * as React from "react";
 import { Image } from "expo-image";
 import { StyleSheet, View, Pressable, Text } from "react-native";
-import { StackNavigationProp } from "@react-navigation/stack";
-import { useNavigation, ParamListBase } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
 import { Color, Border, FontSize, FontFamily } from "../GlobalStyles";
 
-const MAINPAGEloggedout = () => {
-  const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
+const MAINPAGEloggedin = () => {
+  const navigation = useNavigation();
 
   return (
-    <View style={styles.mainpageloggedout}>
+    <View style={styles.mainpageloggedin}>
       <Image
         style={styles.image1Icon}
         contentFit="cover"
         source={require("../assets/image-11.png")}
       />
-      <View style={styles.mainpageloggedoutChild} />
+      <View style={styles.mainpageloggedinChild} />
       <Pressable
-        style={[styles.mainpageloggedoutItem, styles.mainpageloggedoutLayout]}
-        onPress={() => navigation.navigate("BECSIPOGASlogout")}
+        style={[styles.mainpageloggedinItem, styles.mainpageloggedinLayout]}
+        onPress={() => navigation.navigate("KICSIPOGASLOGIN")}
       />
       <Pressable
-        style={[styles.mainpageloggedoutInner, styles.mainpageloggedoutLayout]}
-        onPress={() => navigation.navigate("STATICSLOGOUT")}
+        style={[styles.mainpageloggedinInner, styles.mainpageloggedinLayout]}
+        onPress={() => navigation.navigate("STATICSloggedin")}
       />
       <Pressable
-        style={[styles.rectanglePressable, styles.mainpageloggedoutLayout]}
-        onPress={() => navigation.navigate("SZABADSAGlogout")}
+        style={[styles.rectanglePressable, styles.mainpageloggedinLayout]}
+        onPress={() => navigation.navigate("SZABADSAGlogin")}
       />
       <View style={[styles.frameView, styles.viewPosition]} />
       <View style={[styles.rectangleView, styles.viewPosition]} />
-      <View style={styles.mainpageloggedoutChild1} />
+      <View style={styles.mainpageloggedinChild1} />
       <Text style={[styles.dvzllekLszl, styles.szabadsgTypo]}>
         Üdvözöllek, László!
       </Text>
-      <Text style={[styles.becsippants, styles.szabadsgTypo]}>
-        Becsippantás
-      </Text>
+      <Text style={[styles.kicsipogs, styles.szabadsgTypo]}>Kicsipogás</Text>
       <Text style={[styles.statisztikim, styles.szabadsgTypo]}>
         Statisztikáim
       </Text>
       <Text style={[styles.szabadsg, styles.szabadsgTypo]}>Szabadság</Text>
       <Pressable
         style={styles.btn2}
-        onPress={() => navigation.navigate("STANDBY")}
+        onPress={() => navigation.navigate("Loggedinerrorleave")}
       >
         <Text style={styles.kilps}>Kilépés</Text>
       </Pressable>
@@ -52,7 +49,7 @@ const MAINPAGEloggedout = () => {
 };
 
 const styles = StyleSheet.create({
-  mainpageloggedoutLayout: {
+  mainpageloggedinLayout: {
     height: 180,
     width: 640,
     backgroundColor: Color.colorGray_200,
@@ -81,7 +78,7 @@ const styles = StyleSheet.create({
     opacity: 0,
     position: "absolute",
   },
-  mainpageloggedoutChild: {
+  mainpageloggedinChild: {
     top: -19,
     width: 969,
     height: 969,
@@ -91,12 +88,12 @@ const styles = StyleSheet.create({
     marginLeft: -484,
     position: "absolute",
   },
-  mainpageloggedoutItem: {
+  mainpageloggedinItem: {
     top: 141,
     marginLeft: -484,
     width: 640,
   },
-  mainpageloggedoutInner: {
+  mainpageloggedinInner: {
     marginLeft: -504,
     top: 353,
   },
@@ -120,10 +117,10 @@ const styles = StyleSheet.create({
     top: 47,
     left: "50%",
   },
-  mainpageloggedoutChild1: {
+  mainpageloggedinChild1: {
     marginLeft: 136,
     borderRadius: Border.br_211xl,
-    backgroundColor: Color.colorTomato_200,
+    backgroundColor: Color.colorMediumseagreen,
     width: 40,
     height: 40,
     top: 57,
@@ -136,7 +133,7 @@ const styles = StyleSheet.create({
     fontSize: FontSize.size_13xl,
     top: 57,
   },
-  becsippants: {
+  kicsipogs: {
     marginLeft: -215,
     top: 208,
   },
@@ -169,7 +166,7 @@ const styles = StyleSheet.create({
     height: 67,
     position: "absolute",
   },
-  mainpageloggedout: {
+  mainpageloggedin: {
     borderRadius: Border.br_31xl,
     backgroundColor: Color.colorGray_100,
     flex: 1,
@@ -179,4 +176,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default MAINPAGEloggedout;
+export default MAINPAGEloggedin;

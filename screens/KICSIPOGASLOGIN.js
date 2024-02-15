@@ -1,48 +1,59 @@
 import * as React from "react";
 import { Image } from "expo-image";
 import { StyleSheet, View, Text, Pressable } from "react-native";
-import { StackNavigationProp } from "@react-navigation/stack";
-import { useNavigation, ParamListBase } from "@react-navigation/native";
-import { Color, Border, FontSize, FontFamily } from "../GlobalStyles";
+import { useNavigation } from "@react-navigation/native";
+import { Color, Border, FontFamily, FontSize } from "../GlobalStyles";
 
-const STATICSLOGOUT = () => {
-  const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
+const KICSIPOGASLOGIN = () => {
+  const navigation = useNavigation();
 
   return (
-    <View style={styles.staticslogout}>
+    <View style={styles.kicsipogaslogin}>
       <Image
         style={styles.image1Icon}
         contentFit="cover"
         source={require("../assets/image-11.png")}
       />
-      <View style={[styles.staticslogoutChild, styles.staticslogoutPosition]} />
-      <View style={[styles.staticslogoutItem, styles.staticslogoutPosition]} />
-      <View style={[styles.staticslogoutInner, styles.rectangleViewPosition]} />
+      <View
+        style={[styles.kicsipogasloginChild, styles.kicsipogasloginPosition]}
+      />
+      <View
+        style={[styles.kicsipogasloginItem, styles.kicsipogasloginPosition]}
+      />
+      <View
+        style={[styles.kicsipogasloginInner, styles.rectangleViewPosition]}
+      />
       <View style={[styles.rectangleView, styles.rectangleViewPosition]} />
-      <View style={styles.staticslogoutChild1} />
-      <Text style={[styles.dvzllekLszl, styles.dvzllekLszlTypo]}>
+      <View style={styles.kicsipogasloginChild1} />
+      <Text style={[styles.dvzllekLszl, styles.kicsipogsTypo]}>
         Üdvözöllek, László!
       </Text>
-      <Text style={[styles.statisztikim, styles.dvzllekLszlTypo]}>
-        Statisztikáim
+      <Text style={[styles.kicsipogs, styles.kicsipogsTypo]}>Kicsipogás</Text>
+      <Text style={[styles.rinthetedAKszlked, styles.visszaTypo]}>
+        Érintheted a készüléked
       </Text>
-      <Text style={[styles.dolgozottRk, styles.tlrkPosition]}>
-        Dolgozott órák:
-      </Text>
-      <Text style={[styles.tlrk, styles.tlrkPosition]}>Túlórák:</Text>
-      <Text style={[styles.szabadsgok, styles.tlrkPosition]}>Szabadságok:</Text>
       <Pressable
         style={styles.btn2}
-        onPress={() => navigation.navigate("MAINPAGEloggedout")}
+        onPress={() => navigation.navigate("MAINPAGEloggedin")}
       >
-        <Text style={styles.vissza}>Vissza</Text>
+        <Text style={[styles.vissza, styles.visszaTypo]}>Vissza</Text>
+      </Pressable>
+      <Pressable
+        style={styles.citypng1}
+        onPress={() => navigation.navigate("SIKERCSIPOGASKILEPES")}
+      >
+        <Image
+          style={styles.icon}
+          contentFit="cover"
+          source={require("../assets/citypng-1.png")}
+        />
       </Pressable>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  staticslogoutPosition: {
+  kicsipogasloginPosition: {
     backgroundColor: Color.colorGray_200,
     borderRadius: Border.br_171xl,
     left: "50%",
@@ -52,23 +63,18 @@ const styles = StyleSheet.create({
     top: 47,
     position: "absolute",
   },
-  dvzllekLszlTypo: {
+  kicsipogsTypo: {
     width: 370,
-    color: Color.colorWhite,
-    fontSize: FontSize.size_13xl,
     textAlign: "center",
+    color: Color.colorWhite,
     fontFamily: FontFamily.cambayRegular,
+    fontSize: FontSize.size_13xl,
     left: "50%",
     position: "absolute",
   },
-  tlrkPosition: {
-    height: 46,
-    width: 349,
-    marginLeft: -264,
+  visszaTypo: {
     textAlign: "center",
-    color: Color.colorWhite,
     fontFamily: FontFamily.cambayRegular,
-    fontSize: FontSize.size_13xl,
     left: "50%",
     position: "absolute",
   },
@@ -80,19 +86,19 @@ const styles = StyleSheet.create({
     opacity: 0,
     position: "absolute",
   },
-  staticslogoutChild: {
+  kicsipogasloginChild: {
     marginLeft: -484,
     top: -19,
     width: 969,
     height: 969,
   },
-  staticslogoutItem: {
+  kicsipogasloginItem: {
     marginLeft: -355,
     top: 141,
     width: 531,
     height: 613,
   },
-  staticslogoutInner: {
+  kicsipogasloginInner: {
     left: 121,
     width: 187,
     height: 187,
@@ -108,10 +114,10 @@ const styles = StyleSheet.create({
     top: 47,
     left: "50%",
   },
-  staticslogoutChild1: {
+  kicsipogasloginChild1: {
     marginLeft: 136,
     borderRadius: Border.br_211xl,
-    backgroundColor: Color.colorTomato_200,
+    backgroundColor: Color.colorMediumseagreen,
     width: 40,
     height: 40,
     top: 57,
@@ -122,18 +128,19 @@ const styles = StyleSheet.create({
     marginLeft: -234,
     top: 57,
   },
-  statisztikim: {
+  kicsipogs: {
     marginLeft: -215,
     top: 208,
   },
-  dolgozottRk: {
-    top: 315,
-  },
-  tlrk: {
-    top: 420,
-  },
-  szabadsgok: {
-    top: 531,
+  rinthetedAKszlked: {
+    marginLeft: -192,
+    top: 359,
+    width: 349,
+    height: 46,
+    color: Color.colorWhite,
+    fontSize: FontSize.size_13xl,
+    textAlign: "center",
+    fontFamily: FontFamily.cambayRegular,
   },
   vissza: {
     marginLeft: -25.5,
@@ -142,8 +149,6 @@ const styles = StyleSheet.create({
     color: Color.colorTomato_100,
     textAlign: "center",
     fontFamily: FontFamily.cambayRegular,
-    left: "50%",
-    position: "absolute",
   },
   btn2: {
     top: 821,
@@ -154,14 +159,25 @@ const styles = StyleSheet.create({
     height: 67,
     position: "absolute",
   },
-  staticslogout: {
+  icon: {
+    height: "100%",
+    width: "100%",
+  },
+  citypng1: {
+    left: 72,
+    top: 415,
+    width: 252,
+    height: 252,
+    position: "absolute",
+  },
+  kicsipogaslogin: {
     borderRadius: Border.br_31xl,
     backgroundColor: Color.colorGray_100,
     flex: 1,
-    width: "100%",
     height: 932,
     overflow: "hidden",
+    width: "100%",
   },
 });
 
-export default STATICSLOGOUT;
+export default KICSIPOGASLOGIN;

@@ -1,15 +1,14 @@
 import * as React from "react";
 import { StyleSheet, View, Text, Pressable } from "react-native";
 import { Image } from "expo-image";
-import { StackNavigationProp } from "@react-navigation/stack";
-import { useNavigation, ParamListBase } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
 import { FontSize, Color, FontFamily, Border } from "../GlobalStyles";
 
-const STANDBY = () => {
-  const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
+const SLIDETOCONFIRM = () => {
+  const navigation = useNavigation();
 
   return (
-    <View style={styles.standby}>
+    <View style={styles.slidetoconfirm}>
       <View style={styles.rectangleParent}>
         <View style={styles.frameChild} />
         <View style={styles.frameItem} />
@@ -25,29 +24,30 @@ const STANDBY = () => {
         />
         <Text style={styles.hzzABejelentkezshez}>Húzz a bejelentkezéshez</Text>
       </View>
-      <Image
-        style={styles.image1Icon}
-        contentFit="cover"
-        source={require("../assets/image-12.png")}
-      />
-      <View style={styles.standbyChild} />
+      <View style={styles.slidetoconfirmChild} />
       <Text style={styles.pin}>PIN:</Text>
+      <Text style={styles.text}>1234</Text>
+      <Text style={[styles.text1, styles.textTypo3]}>1</Text>
+      <Text style={[styles.text2, styles.textTypo3]}>4</Text>
+      <Text style={[styles.text3, styles.textTypo3]}>7</Text>
+      <Text style={[styles.text4, styles.textTypo2]}>8</Text>
+      <Text style={[styles.text5, styles.textTypo2]}>0</Text>
+      <Text style={styles.text6}>.</Text>
+      <Text style={[styles.text7, styles.textTypo1]}>9</Text>
+      <Text style={[styles.text8, styles.textTypo2]}>5</Text>
+      <Text style={[styles.text9, styles.textTypo1]}>6</Text>
+      <Text style={[styles.text10, styles.textTypo]}>2</Text>
+      <Text style={[styles.text11, styles.text11Position]}>3</Text>
       <Pressable
-        style={styles.pressable}
-        onPress={() => navigation.navigate("STPIN")}
+        style={[styles.image1, styles.text11Position]}
+        onPress={() => navigation.goBack()}
       >
-        <Text style={styles.textTypo3}>1</Text>
+        <Image
+          style={styles.icon}
+          contentFit="cover"
+          source={require("../assets/image-12.png")}
+        />
       </Pressable>
-      <Text style={[styles.text1, styles.textTypo3]}>4</Text>
-      <Text style={[styles.text2, styles.textTypo3]}>7</Text>
-      <Text style={[styles.text3, styles.textTypo2]}>8</Text>
-      <Text style={[styles.text4, styles.textTypo2]}>0</Text>
-      <Text style={styles.text5}>.</Text>
-      <Text style={[styles.text6, styles.textTypo1]}>9</Text>
-      <Text style={[styles.text7, styles.textTypo2]}>5</Text>
-      <Text style={[styles.text8, styles.textTypo1]}>6</Text>
-      <Text style={[styles.text9, styles.textTypo]}>2</Text>
-      <Text style={[styles.text10, styles.textTypo]}>3</Text>
     </View>
   );
 };
@@ -63,9 +63,11 @@ const styles = StyleSheet.create({
     height: 49,
     width: 26,
     textAlign: "center",
+    left: 83,
     fontSize: FontSize.size_17xl,
     color: Color.colorWhite,
     fontFamily: FontFamily.capriolaRegular,
+    position: "absolute",
   },
   textTypo2: {
     left: 202,
@@ -89,12 +91,15 @@ const styles = StyleSheet.create({
   },
   textTypo: {
     height: 45,
-    textAlign: "center",
     top: 356,
+    textAlign: "center",
     fontSize: FontSize.size_17xl,
-    width: 42,
     color: Color.colorWhite,
     fontFamily: FontFamily.capriolaRegular,
+  },
+  text11Position: {
+    left: 313,
+    width: 42,
     position: "absolute",
   },
   frameChild: {
@@ -151,14 +156,7 @@ const styles = StyleSheet.create({
     position: "absolute",
     overflow: "hidden",
   },
-  image1Icon: {
-    top: 655,
-    height: 37,
-    width: 42,
-    left: 313,
-    position: "absolute",
-  },
-  standbyChild: {
+  slidetoconfirmChild: {
     top: 53,
     left: 24,
     width: 371,
@@ -177,64 +175,83 @@ const styles = StyleSheet.create({
     fontFamily: FontFamily.capriolaRegular,
     position: "absolute",
   },
-  pressable: {
-    top: 356,
+  text: {
+    top: 160,
+    width: 264,
+    height: 119,
+    textAlign: "center",
     left: 83,
+    fontSize: FontSize.size_17xl,
+    color: Color.colorWhite,
+    fontFamily: FontFamily.capriolaRegular,
     position: "absolute",
   },
   text1: {
-    top: 452,
-    left: 83,
+    top: 356,
     height: 49,
-    position: "absolute",
   },
   text2: {
-    top: 548,
-    left: 83,
-    height: 49,
-    position: "absolute",
+    top: 452,
   },
   text3: {
     top: 548,
   },
   text4: {
-    top: 649,
+    top: 548,
   },
   text5: {
+    top: 649,
+  },
+  text6: {
     top: 647,
+    height: 37,
     width: 26,
     textAlign: "center",
     left: 83,
     fontSize: FontSize.size_17xl,
-    height: 37,
     color: Color.colorWhite,
     fontFamily: FontFamily.capriolaRegular,
     position: "absolute",
   },
-  text6: {
-    top: 548,
-  },
   text7: {
-    top: 452,
+    top: 548,
   },
   text8: {
     top: 452,
   },
   text9: {
-    left: 194,
+    top: 452,
   },
   text10: {
-    left: 313,
+    left: 194,
+    width: 42,
     height: 45,
+    position: "absolute",
   },
-  standby: {
+  text11: {
+    height: 45,
+    top: 356,
+    textAlign: "center",
+    fontSize: FontSize.size_17xl,
+    color: Color.colorWhite,
+    fontFamily: FontFamily.capriolaRegular,
+  },
+  icon: {
+    height: "100%",
+    width: "100%",
+  },
+  image1: {
+    top: 655,
+    height: 37,
+  },
+  slidetoconfirm: {
     borderRadius: Border.br_31xl,
     flex: 1,
-    width: "100%",
     height: 932,
     overflow: "hidden",
+    width: "100%",
     backgroundColor: Color.colorGray_100,
   },
 });
 
-export default STANDBY;
+export default SLIDETOCONFIRM;

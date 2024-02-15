@@ -1,45 +1,43 @@
 import * as React from "react";
 import { Image } from "expo-image";
 import { StyleSheet, View, Text, Pressable } from "react-native";
-import { StackNavigationProp } from "@react-navigation/stack";
-import { useNavigation, ParamListBase } from "@react-navigation/native";
+import { useNavigation } from "@react-navigation/native";
 import { FontSize, Color, FontFamily, Border } from "../GlobalStyles";
 
-const Loggedinerrorleave = () => {
-  const navigation = useNavigation<StackNavigationProp<ParamListBase>>();
+const SIKERCSIPOGASKILEPES = () => {
+  const navigation = useNavigation();
 
   return (
-    <View style={styles.loggedinerrorleave}>
+    <View style={styles.sikercsipogaskilepes}>
       <Image
         style={styles.image1Icon}
         contentFit="cover"
         source={require("../assets/image-11.png")}
       />
-      <View style={styles.loggedinerrorleaveChild} />
+      <View style={styles.sikercsipogaskilepesChild} />
       <Image
-        style={styles.loggedinerrorleaveItem}
+        style={styles.sikercsipogaskilepesItem}
         contentFit="cover"
-        source={require("../assets/frame-11.png")}
+        source={require("../assets/frame-12.png")}
       />
-      <Text
-        style={[styles.jelenlegBeVagy, styles.jelenlegBeVagyTypo]}
-      >{`Jelenleg be vagy lépve
-a munkahelyedre ahhoz hogy kijelentkezz csipogj ki a munkahelyedről!`}</Text>
-      <Text style={[styles.sikertelenInterakci, styles.jelenlegBeVagyTypo]}>
-        Sikertelen Interakció!
+      <Text style={[styles.jPihenstLszl, styles.jPihenstLszlTypo]}>
+        Jó pihenést, László!
+      </Text>
+      <Text style={[styles.sikeresKilps, styles.jPihenstLszlTypo]}>
+        Sikeres kilépés!
       </Text>
       <Pressable
         style={styles.btn1}
-        onPress={() => navigation.navigate("MAINPAGEloggedin")}
+        onPress={() => navigation.navigate("MAINPAGEloggedout")}
       >
-        <Text style={styles.megrtettem}>Megértettem</Text>
+        <Text style={styles.tovbb}>Tovább</Text>
       </Pressable>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  jelenlegBeVagyTypo: {
+  jPihenstLszlTypo: {
     width: 370,
     fontSize: FontSize.size_13xl,
     textAlign: "center",
@@ -56,7 +54,7 @@ const styles = StyleSheet.create({
     opacity: 0,
     position: "absolute",
   },
-  loggedinerrorleaveChild: {
+  sikercsipogaskilepesChild: {
     marginLeft: -484,
     top: -19,
     borderRadius: Border.br_171xl,
@@ -66,7 +64,7 @@ const styles = StyleSheet.create({
     left: "50%",
     position: "absolute",
   },
-  loggedinerrorleaveItem: {
+  sikercsipogaskilepesItem: {
     top: 47,
     left: 121,
     width: 187,
@@ -74,16 +72,16 @@ const styles = StyleSheet.create({
     position: "absolute",
     overflow: "hidden",
   },
-  jelenlegBeVagy: {
+  jPihenstLszl: {
     marginLeft: -185,
-    top: 398,
+    top: 502,
   },
-  sikertelenInterakci: {
+  sikeresKilps: {
     marginLeft: -184,
     top: 256,
   },
-  megrtettem: {
-    marginLeft: -51.5,
+  tovbb: {
+    marginLeft: -29.5,
     top: 19,
     fontSize: FontSize.size_lg,
     textAlign: "center",
@@ -97,13 +95,13 @@ const styles = StyleSheet.create({
     left: 31,
     borderRadius: Border.br_221xl,
     borderStyle: "solid",
-    borderColor: Color.colorMediumseagreen,
+    borderColor: Color.colorWhite,
     borderWidth: 1,
     width: 369,
     height: 67,
     position: "absolute",
   },
-  loggedinerrorleave: {
+  sikercsipogaskilepes: {
     borderRadius: Border.br_31xl,
     backgroundColor: Color.colorGray_100,
     flex: 1,
@@ -113,4 +111,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Loggedinerrorleave;
+export default SIKERCSIPOGASKILEPES;
